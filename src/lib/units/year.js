@@ -50,7 +50,9 @@ function isLeapYear(year) {
 // HOOKS
 
 hooks.parseTwoDigitYear = function (input) {
-    return toInt(input) + (toInt(input) > 68 ? 1900 : 2000);
+    var today = new Date();
+    var currentYearTwoDigit = parseInt(today.getFullYear().toString(10).substring(2, 4), 10);
+    return toInt(input) + (toInt(input) > currentYearTwoDigit ? 1900 : 2000);
 };
 
 // MOMENTS
